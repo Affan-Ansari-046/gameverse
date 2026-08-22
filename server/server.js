@@ -18,12 +18,12 @@ app.use(cors({
 app.use(express.json());
 
 // Attach Socket.IO
-const io = new Server(server, {
-  pingTimeout: 60000,
+const io = require("socket.io")(server, {
   cors: {
-    origin: '*',
-    methods: ['GET', 'POST'],
-  },
+    origin: "https://gameverse-blush-nu.vercel.app", // Tumhara live Vercel frontend URL
+    methods: ["GET", "POST"],
+    credentials: true
+  }
 });
 
 setupSocketHandlers(io);
