@@ -6,8 +6,11 @@ export const useSocket = () => {
   const [isConnected, setIsConnected] = useState(false);
 
   useEffect(() => {
-    // Initialize Socket.IO connection
-    const newSocket = io(window.location.origin, {
+    // Apne Render.com backend ka live URL yahan add kiya hai
+    const BACKEND_URL = 'https://gameverse-backend.onrender.com';
+
+    // Initialize Socket.IO connection naye backend URL ke sath
+    const newSocket = io(BACKEND_URL, {
       transports: ['websocket', 'polling'],
       reconnectionAttempts: 5,
     });
